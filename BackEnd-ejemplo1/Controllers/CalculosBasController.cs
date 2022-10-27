@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BackEnd_ejemplo1.Models;
+using BackEnd_ejemplo1.Services;
 
 namespace BackEnd_ejemplo1.Controllers
 {
@@ -33,11 +34,29 @@ namespace BackEnd_ejemplo1.Controllers
             ViewBag.Res = op.Res;
             return View(op);
         }
-        [HttpPost]
-        public ActionResult Resta(OperaBas op)
+     
+        public ActionResult MuestraPeliculas()
         {
-            op.Resta();
-            return View(op);
+            var peliculasservice = new PeliculaService();
+            var model = peliculasservice.ObtenerPelicula();
+
+            return View(model);
+        }
+        public ActionResult MuestraPeliculas2()
+        {
+            var peliculasservice = new PeliculaService();
+            var model = peliculasservice.ObtenerPelicula();
+
+            return View(model);
+        }
+        public ActionResult temporal()
+        {
+            return Redirect("https://google.com.mx");
+        }
+
+        public RedirectToRouteResult temporal2()
+        {
+            return RedirectToAction("index","Home");
         }
     }
 }
