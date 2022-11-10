@@ -1,0 +1,28 @@
+﻿
+<div class="jumbotron">
+    <h1>Vista Parcial</h1>
+    <hr />
+    <button type="button" id="btnGaraje">Cargar Garaje</button>
+    <button type="button" id="btnGarajeSimple">Cargar Garaje Simple</button>
+    <button type="button" id="btnLimpiar">Limpiar datos</button>
+</div>
+<div id="divGaraje">
+
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            console.log("funcion");
+            $("#btnGaraje").click(function () {
+                console.log("boton1");
+                $("#divGaraje").load("_Garaje");
+            });
+            $("#btnGarajeSimple").click(function() {
+                $("#divGaraje").load("_GarajeSimple");
+            });
+            $("#btnLimpiar").click(function () {
+                $("#divGaraje").html("");
+            });
+        });
+    </script>
+    }
